@@ -178,10 +178,12 @@ public class PullToRefreshView: UIView {
         self.animator.stopAnimation()
         var scrollView = superview as UIScrollView
         scrollView.bounces = self.scrollViewBouncesDefaultValue
+        self.labelTitle.hidden = true
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             scrollView.contentInset = self.scrollViewInsetsDefaultValue
         }) { (Bool) -> Void in
             self.animator.changeProgress(0)
+            self.labelTitle.hidden = false
         }
     }
 }
